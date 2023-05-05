@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function Post(props) {
+    const [bookmark, setBookmark] = useState("bookmark-outline");
+
     return (
         <div class="post">
             <div class="topo">
@@ -23,7 +27,8 @@ export default function Post(props) {
                     <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
                 <div>
-                    <ion-icon name="bookmark-outline"></ion-icon>
+                    <ion-icon onClick={() => (bookmark === "bookmark-outline") ? 
+                        setBookmark("bookmark") : setBookmark("bookmark-outline")} name={bookmark}></ion-icon>
                 </div>
                 </div>
 

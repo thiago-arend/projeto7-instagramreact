@@ -28,7 +28,7 @@ export default function Post(props) {
                 </div>
 
                 <div class="curtidas">
-                <img src="assets/img/respondeai.svg" alt="respondeai"/>
+                <img src={props.curtidasImagem} alt={props.curtidasNome}/>
                 <div class="texto">
                     Curtido por <strong>{props.curtidasNome}</strong> e <strong>outras {props.curtidasNumero} pessoas</strong>
                 </div>

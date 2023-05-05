@@ -6,11 +6,14 @@ export default function Post(props) {
     const [heartType, setHeartType] = useState("heart-outline");
     const [qtdLikes, setQtdLikes] = useState(0);
 
-    function aplicaEstiloHeart() {
+    function aplicaEstiloHeart(efeito) {
         if (heartType !== "heart") { // se o estilo não for heart, aplica heart
             setHeartType("heart");
             setHeartColor("vermelho");
             setQtdLikes(qtdLikes + 1); // aumenta like
+
+            if (efeito)
+                console.log("aplica efeito!");
         }
     }
 
@@ -40,7 +43,8 @@ export default function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img onClick={aplicaEstiloHeart} src={props.conteudoImagem} alt={props.conteudoAltImagem}/>
+                <img onDoubleClick={() => aplicaEstiloHeart(true)} onClick={() => aplicaEstiloHeart(false)}
+                    src={props.conteudoImagem} alt={props.conteudoAltImagem}/>
             </div>
 
             <div class="fundo">

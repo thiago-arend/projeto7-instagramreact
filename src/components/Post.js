@@ -2,6 +2,30 @@ import { useState } from "react";
 
 export default function Post(props) {
     const [bookmark, setBookmark] = useState("bookmark-outline");
+    const [heartColor, setHeartColor] = useState("");
+    const [heartType, setHeartType] = useState("heart-outline");
+    const [qtdLikes, setQtdLikes] = useState(0);
+
+    function aplicaEstiloHeart() {
+        if (heartType !== "heart") { // se o estilo não for heart, aplica heart
+            setHeartType("heart");
+            setHeartColor("vermelho");
+            setQtdLikes(qtdLikes + 1); // aumenta like
+        }
+    }
+
+    function removeEstiloHeart() { // se o estilo for heart, remove heart
+        if (heartType === "heart") {
+            setHeartType("heart-outline");
+            setHeartColor("");
+            setQtdLikes(qtdLikes - 1); // diminui like
+        }
+    }
+
+    function aplicaToggleHeart() {
+        aplicaEstiloHeart();
+        removeEstiloHeart();
+    }
 
     return (
         <div class="post">
@@ -16,13 +40,13 @@ export default function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.conteudoImagem} alt={props.conteudoAltImagem}/>
+                <img onClick={aplicaEstiloHeart} src={props.conteudoImagem} alt={props.conteudoAltImagem}/>
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                 <div>
-                    <ion-icon name="heart-outline"></ion-icon>
+                    <ion-icon onClick={aplicaToggleHeart} class={heartColor} name={heartType}></ion-icon>
                     <ion-icon name="chatbubble-outline"></ion-icon>
                     <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
@@ -35,7 +59,7 @@ export default function Post(props) {
                 <div class="curtidas">
                 <img src={props.curtidasImagem} alt={props.curtidasNome}/>
                 <div class="texto">
-                    Curtido por <strong>{props.curtidasNome}</strong> e <strong>outras {props.curtidasNumero} pessoas</strong>
+                    Curtido por <strong>{props.curtidasNome}</strong> e <strong>outras {qtdLikes} pessoas</strong>
                 </div>
                 </div>
             </div>

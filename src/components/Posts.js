@@ -15,8 +15,14 @@ export default function Posts() {
 
     {
         topoImagem: "./assets/img/9gag.svg", topoTitulo: "9gag",
-        conteudoImagem: "./assets/img/womanyellingcat.jpg", conteudoAltImagem: "womanyellingcat",
+        conteudoImagem: "./assets/img/cat3.jpeg", conteudoAltImagem: "ia-cat",
         curtidasImagem: "./assets/img/filomoderna.svg", curtidasNome: "filomoderna"
+    }, 
+
+    {
+        topoImagem: "./assets/img/nathanwpylestrangeplanet.svg", topoTitulo: "nathanwpylestrangeplanet",
+        conteudoImagem: "./assets/img/cat4.jpeg", conteudoAltImagem: "ia-steampunk-cat",
+        curtidasImagem: "./assets/img/meowed.svg", curtidasNome: "meowed"
     }];
 
     return (

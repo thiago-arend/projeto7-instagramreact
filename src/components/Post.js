@@ -37,7 +37,7 @@ export default function Post(props) {
     }
 
     return (
-        <div class="post">
+        <div data-test="post" class="post">
             <div class="topo">
                 <div class="usuario">
                     <img src={props.topoImagem} alt={props.topoTitulo} />
@@ -50,19 +50,19 @@ export default function Post(props) {
 
             <div class="conteudo">
                 <ion-icon class={classeAnimacao} name="heart"></ion-icon>
-                <img onClick={aplicaEstiloHeart} src={props.conteudoImagem}
+                <img data-test="post-image" src={props.conteudoImagem}
                     onDoubleClick={aplicaAnimacaoHeart} alt={props.conteudoAltImagem} />
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon onClick={aplicaToggleHeart} class={heartColor} name={heartType}></ion-icon>
+                        <ion-icon data-test="like-post" onClick={aplicaToggleHeart} class={heartColor} name={heartType}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon onClick={() => (bookmark === "bookmark-outline") ?
+                        <ion-icon data-test="save-post" onClick={() => (bookmark === "bookmark-outline") ?
                             setBookmark("bookmark") : setBookmark("bookmark-outline")} name={bookmark}></ion-icon>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ export default function Post(props) {
                 <div class="curtidas">
                     <img src={props.curtidasImagem} alt={props.curtidasNome} />
                     <div class="texto">
-                        Curtido por <strong>{props.curtidasNome}</strong> e <strong>outras {qtdLikes} pessoas</strong>
+                        Curtido por <strong>{props.curtidasNome}</strong> e <strong data-test="likes-number">outras {qtdLikes} pessoas</strong>
                     </div>
                 </div>
             </div>

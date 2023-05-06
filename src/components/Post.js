@@ -5,18 +5,7 @@ export default function Post(props) {
     const [heartColor, setHeartColor] = useState("");
     const [heartType, setHeartType] = useState("heart-outline");
     const [qtdLikes, setQtdLikes] = useState(0);
-    const [classeAnimacao, setClasseAnimacao] = useState("animacao-esconde");
-
-    // function aplicaEstiloHeart(efeito) {
-    //     if (heartType !== "heart") { // se o estilo não for heart, aplica heart
-    //         setHeartType("heart");
-    //         setHeartColor("vermelho");
-    //         setQtdLikes(qtdLikes + 1); // aumenta like
-
-    //         if (efeito)
-    //             console.log("aplica efeito!");
-    //     }
-    // }
+    const [classeAnimacao, setClasseAnimacao] = useState("");
 
     function aplicaEstiloHeart() {
         if (heartType !== "heart") { // se o estilo não for heart, aplica heart
@@ -42,6 +31,9 @@ export default function Post(props) {
     function aplicaAnimacaoHeart() {
         aplicaEstiloHeart();
         setClasseAnimacao("animacao-mostra");
+        setTimeout(() => {
+            setClasseAnimacao("animacao-esconde");
+        }, 500);
     }
 
     return (

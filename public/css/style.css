@@ -117,7 +117,7 @@ body {
   height: 66px;
   width: 66px;
   background-image: url('../assets/img/story-circle.svg');
-  
+
 }
 
 .story .imagem img {
@@ -186,17 +186,24 @@ body {
   align-items: center;
 }
 
-.animacao-esconde {
-  position: absolute;
-  height: 0px;
-  width: 0px;
-  color: white;
-  transition: width 2s, height 4s;
-}
-
 .animacao-mostra {
+  transition-property: width, height;
+  transition-duration: 0.3s;
+
+  position: absolute;
   height: 300px;
   width: 300px;
+  color: white;
+}
+
+.animacao-esconde {
+  transition-property: width, height;
+  transition-duration: 0s;
+  
+  position: absolute;
+  color: white;
+  width: 0px;
+  height: 0px;
 }
 
 .post .fundo .acoes {
@@ -307,7 +314,7 @@ body {
 .links, .copyright {
   font-size: 11px;
   color: #C7C7C7;
-} 
+}
 
 .links {
   margin-top: 40px;

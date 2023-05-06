@@ -180,9 +180,24 @@ body {
   width: 100%;
 }
 
-/* .animacao {
-  background-color: red;
-} */
+.post .conteudo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animacao-esconde {
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  color: white;
+  transition: width 2s, height 4s;
+}
+
+.animacao-mostra {
+  height: 300px;
+  width: 300px;
+}
 
 .post .fundo .acoes {
   display: flex;

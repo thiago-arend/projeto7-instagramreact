@@ -5,7 +5,7 @@ export default function Post(props) {
     const [heartColor, setHeartColor] = useState("");
     const [heartType, setHeartType] = useState("heart-outline");
     const [qtdLikes, setQtdLikes] = useState(0);
-    const [classeAnimacao, setClasseAnimacao] = useState("conteudo");
+    const [classeAnimacao, setClasseAnimacao] = useState("animacao-esconde");
 
     // function aplicaEstiloHeart(efeito) {
     //     if (heartType !== "heart") { // se o estilo não for heart, aplica heart
@@ -41,7 +41,7 @@ export default function Post(props) {
 
     function aplicaAnimacaoHeart() {
         aplicaEstiloHeart();
-        setClasseAnimacao("conteudo animacao");
+        setClasseAnimacao("animacao-mostra");
     }
 
     return (
@@ -56,7 +56,8 @@ export default function Post(props) {
                 </div>
             </div>
 
-            <div class={classeAnimacao}>
+            <div class="conteudo">
+                <ion-icon class={classeAnimacao} name="heart"></ion-icon>
                 <img onClick={aplicaEstiloHeart} src={props.conteudoImagem}
                     onDoubleClick={aplicaAnimacaoHeart} alt={props.conteudoAltImagem} />
             </div>

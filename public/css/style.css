@@ -180,6 +180,10 @@ body {
   width: 100%;
 }
 
+/* .animacao {
+  background-color: red;
+} */
+
 .post .fundo .acoes {
   display: flex;
   justify-content: space-between;
